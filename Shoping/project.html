@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Project API</title>
+    <link rel="stylesheet" href="project.css">
+    <link rel="stylesheet" href="modal.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-items">
+            <h3 class="logo">Needy</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="main-container" style="width: 100%; display: flex; justify-content: center; align-items: center;">
+        <div class="product-datas" style="width: 80%;">
+            <div class="product-container" id="product-container"></div>
+            <div class="cart-container" style="padding: 15px;">
+                <h3 style="text-align: center; font-size: 25px;">Add to Cart</h3>
+                <hr>
+                <div id="cart-list">
+
+                </div>
+                <hr>
+                <h3 class="totalPrice">Cart is Empty</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal/Popup Container -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <div id="product-details">
+                <!-- Product details will be injected here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="project.js"></script>
+</body>
+</html>

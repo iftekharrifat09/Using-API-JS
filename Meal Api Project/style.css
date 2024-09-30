@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+*{
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 100px;
+}
+
+#search{
+    width: 400px;
+    height: 40px;
+    border-radius: 5px;
+    padding-left: 10px;
+    font-size: 18px;
+}
+.mealDataContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+button{
+    background-color: gold;
+    border: none;
+    color: black;
+    font-size: 18px;
+    width: 100px;
+    height: 45px;
+    border-radius: 5px;
+}
+
+button:hover{
+    background-color: #f9c23c;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+    font-weight: bold;
+}
+.title{
+    font-size: 24px;
+    font-weight: bold;
+    padding: 0px;
+    margin: 0px;
+}
+.mealImage{
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+}
+.meal-card{
+    width: 300px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+    overflow: auto;
+}
+
+#meal-container{
+    width: 80%;
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin: 80px;
+}
+
+.noData{
+    color: rgb(227, 16, 16);
+    font-size: 25px;
+}
+.meal-detais{
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    width: 400px;
+    height: 500px;
+    overflow: auto;
+    padding: 15px;
+    border-radius: 20px;
+    scrollbar-width: none;
+    background-color: aliceblue;
+    transition: background-color 0.3s ease;
+    transition: box-shadow 0.5s ease;
+    &:hover{
+
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    }
+}
+.meal-detais .instruction{
+    height: 150px;
+    padding-left: 10px;
+    border-radius: 10px;
+    overflow: auto;
+    transition: color 0.3s ease;
+    &:hover{
+        color: rgb(118, 21, 4);
+        cursor: pointer;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    }
+}
+.meal-detais h3{
+    font-size: 25px;
+    margin: 0px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: brown;
+}
+.meal-detais .mealImage{
+    /* margin-left: 67px; */
+    width: 100%;
+    height: 280px;
+    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.4);
+}
+.viewDetais{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.catego, .ingre{
+    font-size: 20px !important;
+    font-weight: bold;
+}

@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+*{
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+nav{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+}
+.nav-items{
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+li{
+    list-style-type: none;
+    margin: 0 10px;
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
+    color: rgb(228, 57, 0);
+    font-size: 20px;
+    font-weight: 500;
+}
+li a:hover{
+    color: rgb(255, 157, 0);
+    transition: background-color 0.3s ease;
+    transform: scale(1.05);
+    
+}
+ul{
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+}
+.logo{
+    margin: 5px;
+    padding-left: 30px;
+    font-size: 38px;
+    color: rgb(249, 141, 0);
+    cursor: pointer;
+}
+.productData{
+    height: 400px;
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    align-items: center;
+    margin-top: 30px;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+button{
+    margin-top: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: rgb(249, 141, 0);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    transform: scale(1);
+    outline: none;
+    border: none;
+    font-size: 16px;
+
+    &:hover{
+        background-color: rgb(255, 209, 0);
+        transition: background-color 0.3s ease;
+        transform: scale(1.05);
+        cursor: pointer;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    }
+}
+.buttons{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+.product-container{
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: 15px;
+}
+.cart-container{
+    margin-top: 30px;
+    width: 450px;
+    height: 600px;   
+    border-radius: 20px;
+    position: sticky;
+    top: 100px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    overflow: auto;
+}
+.product-datas{
+    display: flex;
+    padding: 10px;
+}
+.productData img{
+    width: 150px;
+    height: 150px;
+}
+.productData h3, p, h5, .buttons{
+    margin: 0px;
+    padding: 0px;
+}
+
+.productData {
+    width: 300px; /* Adjust width based on your design */
+    overflow: hidden; /* Hide overflow content */
+}
+.productData h5{
+    font-size: 26px;
+}
+.productData h3 {
+    font-size: 20px;
+    overflow: hidden; 
+}
+.cart-item{
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    transition: box-shadow 0.3s ease;
+}
+.cart-item:hover{
+    box-shadow: 5px 5px 10px rgba(55, 54, 2, 0.3);
+    transform: scale(1.05);
+}
+.cart-item h3{
+    margin: 0px;
+    padding: 0px;
+}
+
+.cart-item p{
+    font-size: 18px;
+    margin: 8px 0px;
+}
+
+.totalPrice{
+    position: sticky;
+    bottom: 0px;
+    background-color: rgb(255, 170, 0);
+    border-radius: 5px;
+    padding: 30px 10px;
+    font-size: 20px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+
