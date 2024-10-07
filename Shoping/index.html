@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Shopping</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+        *{
+            font-family: "Rubik", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+        }
+        nav{
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px;
+        }
+        .nav-items{
+            width: 70%;
+            display: flex;
+            justify-content: space-between;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+        }
+        li{
+            list-style-type: none;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+        a{
+            text-decoration: none;
+            color: rgb(228, 57, 0);
+            font-size: 20px;
+            font-weight: 500;
+        }
+        li a:hover{
+            color: rgb(255, 157, 0);
+            transition: background-color 0.3s ease;
+            transform: scale(1.05);
+            
+        }
+        ul{
+            width: 50%;
+            display: flex;
+            justify-content: space-around;
+        }
+        .logo{
+            margin: 5px;
+            padding-left: 30px;
+            font-size: 38px;
+            color: rgb(249, 141, 0);
+            cursor: pointer;
+        }
+        .productData{
+            height: 400px;
+            width: 280px;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            align-items: center;
+            margin-top: 30px;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        button{
+            margin-top: 10px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: rgb(249, 141, 0);
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            transform: scale(1);
+            outline: none;
+            border: none;
+            font-size: 16px;
+
+            &:hover{
+                background-color: rgb(255, 209, 0);
+                transition: background-color 0.3s ease;
+                transform: scale(1.05);
+                cursor: pointer;
+                box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+            }
+        }
+        .buttons{
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .product-container{
+            width: 80%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: start;
+            gap: 15px;
+        }
+        .cart-container{
+            margin-top: 30px;
+            width: 450px;
+            height: 600px;   
+            border-radius: 20px;
+            position: sticky;
+            top: 100px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+            overflow: auto;
+        }
+        .product-datas{
+            display: flex;
+            padding: 10px;
+        }
+        .productData img{
+            width: 150px;
+            height: 150px;
+        }
+        .productData h3, p, h5, .buttons{
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .productData {
+            width: 300px; /* Adjust width based on your design */
+            overflow: hidden; /* Hide overflow content */
+        }
+        .productData h5{
+            font-size: 26px;
+        }
+        .productData h3 {
+            font-size: 20px;
+            overflow: hidden; 
+        }
+        .cart-item{
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+            transition: box-shadow 0.3s ease;
+        }
+        .cart-item:hover{
+            box-shadow: 5px 5px 10px rgba(55, 54, 2, 0.3);
+            transform: scale(1.05);
+        }
+        .cart-item h3{
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .cart-item p{
+            font-size: 18px;
+            margin: 8px 0px;
+        }
+
+        .totalPrice{
+            position: sticky;
+            bottom: 0px;
+            background-color: rgb(255, 170, 0);
+            border-radius: 5px;
+            padding: 30px 10px;
+            font-size: 20px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+        }
+                /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            margin-bottom: 200px;
+        }
+                
+        .modal-content {
+            background-color: white;
+            margin:9% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 400px; /* Adjust width */
+            height: 550px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: auto;
+        }
+            .modal-image{
+            margin-left: 120px;
+        }
+        /* Close Button (x) */
+        .close-button {
+            color: #ffffff;
+            float: right;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            height: 30px;
+            width: 30px;
+            padding-left: 2px;
+            padding-bottom: 7px;
+            border-radius: 50%;
+            background-color: red;
+            text-align: center;
+        }
+                
+        .close-button:hover,
+        .close-button:focus {
+            color: #b1a9a9;
+            background-color: white;
+            border: 1px solid red;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <nav class="nav">
+        <div class="nav-items">
+            <h3 class="logo">Needy</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="main-container" style="width: 100%; display: flex; justify-content: center; align-items: center;">
+        <div class="product-datas" style="width: 80%;">
+            <div class="product-container" id="product-container"></div>
+            <div class="cart-container" style="padding: 15px;">
+                <h3 style="text-align: center; font-size: 25px;">Add to Cart</h3>
+                <hr>
+                <div id="cart-list">
+
+                </div>
+                <hr>
+                <h3 class="totalPrice">Cart is Empty</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal/Popup Container -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <div id="product-details">
+                <!-- Product details will be injected here -->
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+
+    let cart = {}; // Use an object to keep track of product quantities by ID
+
+    const loadAllProduct = () => {
+        fetch('https://fakestoreapi.com/products')
+            .then(response => response.json())
+            .then(data => {
+                displayAllProduct(data);
+            });
+    };
+
+    const singleProduct = (id) => {
+        fetch(`https://fakestoreapi.com/products/${id}`)
+            .then(response => response.json())
+            .then(data => {
+                // Display product data in the popup
+                const productDetails = document.getElementById('product-details');
+                productDetails.innerHTML = `
+                    <h2>${data.title}</h2>
+                    <img class="modal-image" src="${data.image}" alt="${data.title}" width="150" height="200"/>
+                    <h3>Price: $${data.price}</h3>
+                    <p>${data.description}</p>
+                    <h4>Category: ${data.category}</h4>
+                `;
+                // Show the modal
+                openModal();
+            });
+    };
+
+    // Open the modal
+    const openModal = () => {
+        const modal = document.getElementById('product-modal');
+        modal.style.display = 'block';
+    };
+
+    // Close the modal
+    const closeModal = () => {
+        const modal = document.getElementById('product-modal');
+        modal.style.display = 'none';
+    };
+
+
+    const displayAllProduct = (products) => {
+        const productContainer = document.querySelector('#product-container');
+
+        products.forEach(product => {
+            const productDiv = document.createElement('div');
+            productDiv.classList.add('productData');
+
+            // Updated `category`, fixed `description`, and `id` in quotes
+            productDiv.innerHTML = `
+                <img src="${product.image}" alt="" />
+                <h5>${product.title.slice(0, 20)}</h5>
+                <h3>Price: ${product.price}$</h3>
+                <p>${product.description.slice(0, 30)}</p>
+                <div class="buttons">
+                    <button onclick="singleProduct(${product.id})">View Details</button>
+                    <button onclick="handleAddToCart(${product.id}, '${product.title.replace(/'/g, "\\'")}', ${product.price}, '${product.category.replace(/'/g, "\\'")}', '${product.description.replace(/'/g, "\\'")}'), updateTotalPrice()">Add to Cart</button>
+                </div>
+            `;
+            productContainer.appendChild(productDiv);
+        });
+    };
+    updateTotalPrice=()=>{
+        let totalPrice=0;
+        for(let id in cart){
+            totalPrice+=cart[id].price*cart[id].quantity; 
+        }
+        if(totalPrice==0){
+            document.querySelector('.totalPrice').innerHTML="Cart is Empty";
+            return;
+        }
+        document.querySelector('.totalPrice').innerHTML="Total Price: $"+totalPrice;
+    
+    }
+    const handleAddToCart = (id, title, price, category) => {
+        // Check if the product is already in the cart
+        if (!cart[id]) {
+            // If not, add it with quantity 1
+            cart[id] = {
+                title: title,
+                price: price,
+                category: category,
+                quantity: 1
+            };
+        } else {
+            // If it is, increase the quantity
+            cart[id].quantity++;
+        }
+        
+        updateCartDisplay();
+    };
+
+    const updateCartDisplay = () => {
+        const container = document.querySelector('#cart-list');
+        container.innerHTML = ''; // Clear the cart display
+
+        for (const id in cart) {
+            const item = cart[id];
+            const div = document.createElement('div');
+            div.classList.add('cart-item'); // Optional: for styling cart items
+
+            div.innerHTML = `
+                <h3>Title: ${item.title}</h3>
+                <p>Category: ${item.category}</p>
+                <p class="price">Price: ${item.price}$</p>
+                <p>Quantity: ${item.quantity}</p>
+                <button onclick="removeFromCart(${id}),updateTotalPrice()">Remove</button>
+            `;
+
+            container.appendChild(div); // Append the cart item to the container
+        }
+    };
+
+    const removeFromCart = (id) => {
+        console.log('Remove item with id:', id);
+
+        // Check if the item exists in the cart
+        if (cart[id]) {
+            // Decrease the quantity
+            cart[id].quantity--;
+
+            // If quantity reaches 0, remove it from the cart
+            if (cart[id].quantity <= 0) {
+                delete cart[id];
+                console.log(`Product with id ${id} has been removed from the cart.`);
+            }
+
+            updateCartDisplay(); // Refresh the cart display
+        }
+    };
+
+    // Load products when the page loads
+    loadAllProduct();
+
+    </script>
+</body>
+</html>
